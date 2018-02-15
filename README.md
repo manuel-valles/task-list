@@ -1,6 +1,7 @@
-# TASK LIST APP
+# Task List App
 A basic application using the modern Vanilla JavaScript.
 
-### Tools
-Materialize CSS
-Font Awesome
+## Tools
+* Materialize CSS
+
+* Font Awesome
