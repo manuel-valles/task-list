@@ -105,11 +105,12 @@ function storeTaskInLocalStorage(task) {
 // Remove Task
 function removeTask(e){
   if(e.target.parentElement.classList.contains('delete-item')){
-    if(confirm('Are you sure?')){
-      e.target.parentElement.parentElement.remove();
+    const task = e.target.parentElement.parentElement;
+    if(confirm(`Delete task '${task.textContent}'?`)){
+     task.remove();
 
       // Call function to remove task from Local Storage
-      removeTaskFromLocalStorage(e.target.parentElement.parentElement);
+      removeTaskFromLocalStorage(task);
     }
   }
 }
@@ -134,12 +135,14 @@ function removeTaskFromLocalStorage(taskItem){
 
 // Clear Tasks
 function clearTasks(){
-  while(taskList.firstChild){
-    taskList.removeChild(taskList.firstChild);
-  }
+  if(confirm('Clear all tasks?')){
+    while(taskList.firstChild){
+      taskList.removeChild(taskList.firstChild);
+    }
 
-  // Clear tasks from Local Storage
-  clearTasksFromLocalStorage();
+    // Clear tasks from Local Storage
+    clearTasksFromLocalStorage();
+  }
 }
 
 // Clear Tasks from Local Storage
