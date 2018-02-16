@@ -108,13 +108,13 @@ function removeTask(e){
     if(confirm('Are you sure?')){
       e.target.parentElement.parentElement.remove();
 
-      // Call function to remove from Local Storage
+      // Call function to remove task from Local Storage
       removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
   }
 }
 
-// Remove from Local Storage
+// Remove Task from Local Storage
 function removeTaskFromLocalStorage(taskItem){
   let tasks;
   if(localStorage.getItem('tasks') === null){
@@ -137,6 +137,14 @@ function clearTasks(){
   while(taskList.firstChild){
     taskList.removeChild(taskList.firstChild);
   }
+
+  // Clear tasks from Local Storage
+  clearTasksFromLocalStorage();
+}
+
+// Clear Tasks from Local Storage
+function clearTasksFromLocalStorage() {
+  localStorage.clear();
 }
 
 // Filter Tasks
